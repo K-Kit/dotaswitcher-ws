@@ -101,44 +101,46 @@ def getState():
         mm.close()
         return line.rsplit(None, 1)[-1]
 def switch():
-    if (cur == "DOTA_GAME_UI_STATE_DASHBOARD" & dashboard.scene != "none"):
+    cur = getState()
+    if (cur == "DOTA_GAME_UI_STATE_DASHBOARD" and dashboard.scene != "none"):
         cs = dashboard.scene
         ws.call(requests.SetCurrentScene(cs))
 
-    if (cur == "'INIT'" & init.scene != "none"):
+    if (cur == "'DOTA_GAMERULES_STATE_INIT'" and init.scene != "none"):
         cs = init.scene
         ws.call(requests.SetCurrentScene(cs))
 
-    if (cur == "'WAIT_FOR_PLAYERS_TO_LOAD'" & loading.scene != "none"):
+    if (cur == "'DOTA_GAMERULES_STATE_WAIT_FOR_PLAYERS_TO_LOAD'" and loading.scene != "none"):
         cs = loading.scene
         ws.call(requests.SetCurrentScene(cs))
 
-    if (cur == "'CUSTOM_GAME_SETUP'" & setup.scene != "none"):
+    if (cur == "'DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP'" and setup.scene != "none"):
         cs = setup.scene
         ws.call(requests.SetCurrentScene(cs))
 
-    if (cur == "'HERO_SELECTION'" & heroSel.scene != "none"):
+    if (cur == "'DOTA_GAMERULES_STATE_HERO_SELECTION'" and heroSel.scene != "none"):
         cs = heroSel.scene
         ws.call(requests.SetCurrentScene(cs))
 
-    if (cur == "'STRATEGY_TIME'" & strategy.scene != "none"):
+    if (cur == "'DOTA_GAMERULES_STATE_STRATEGY_TIME'" and strategy.scene != "none"):
         cs = strategy.scene
         ws.call(requests.SetCurrentScene(cs))
 
-    if (cur == "'TEAM_SHOWCASE'" & teamshowcase.scene != "none"):
+    if (cur == "'DOTA_GAMERULES_STATE_TEAM_SHOWCASE'" and teamshowcase.scene != "none"):
         cs = teamshowcase.scene
         ws.call(requests.SetCurrentScene(cs))
 
-    if (cur == "'PRE_GAME'" & pregame.scene != "none"):
+    if (cur == "'DOTA_GAMERULES_STATE_PRE_GAME'" and pregame.scene != "none"):
+        print("working")
         cs = pregame.scene
         ws.call(requests.SetCurrentScene(cs))
-    if (cur == "'GAME_IN_PROGRESS'" & gameinprogress.scene != "none"):
+    if (cur == "'DOTA_GAMERULES_STATE_GAME_IN_PROGRESS'" and gameinprogress.scene != "none"):
         cs = gameinprogress.scene
         ws.call(requests.SetCurrentScene(cs))
-    if (cur == "'POST_GAME'" & postgame.scene != "none"):
+    if (cur == "'DOTA_GAMERULES_STATE_POST_GAME'" and postgame.scene != "none"):
         cs = postgame.scene
         ws.call(requests.SetCurrentScene(cs))
-    if (cur == "'DISCONNECT'" & disconnect.scene != "none"):
+    if (cur == "'DOTA_GAMERULES_STATE_DISCONNECT'" and disconnect.scene != "none"):
         cs = disconnect.scene
         ws.call(requests.SetCurrentScene(cs))
 
@@ -146,7 +148,7 @@ def switch():
 
 def run():
     cur = getState()
-    ws.call(requests.SetCurrentScene(cur))
+    switch()
     while (1>0):
         print getState()
         # new = getState()
