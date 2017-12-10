@@ -11,3 +11,7 @@ C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\cons
 
 
 ATM no error handling included, wont work if path invalid
+
+
+WARN the UI will freeze up when its running but the process is still working in the background
+-much refactoring and optimization needed
