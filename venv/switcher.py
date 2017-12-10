@@ -37,7 +37,7 @@ class opm:
 
     def func(self, value):
         self.scene = value
-        print value
+        print (value)
     def getlable(self):
         return self.addlabel.cget("text")
 
@@ -160,11 +160,10 @@ def run():
     cur = getState()
     switch()
     while (1>0):
-        print getState()
+        # print getState()
         new = getState()
         if (cur!= new):
             cur = new
-            print "stuff"
             switch()
         time.sleep(1)
 b = Button(bottomFrame, text="run", command=run)

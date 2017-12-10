@@ -1,4 +1,4 @@
-#!C:\Users\kit\PycharmProjects\untitled\venv\Scripts\python.exe
+#!C:\Users\kit\PycharmProjects\dswitcher\venv\Scripts\python.exe
 
 import argparse
 import code
