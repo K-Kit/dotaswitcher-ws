@@ -47,7 +47,8 @@ class opm:
 host = "localhost"
 port = 4444
 password = "secret"
-path = "C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\console.log"
+global path
+path = ""
 ws = obsws(host, port, password)
 ws.connect()
 scenes = ws.call(requests.GetSceneList())
@@ -63,6 +64,13 @@ entry_Path = Entry(topFrame)
 label_Path.grid(row=1)
 entry_Path.grid(row=1, column=1)
 
+
+def quit(self):
+    self.root.destroy
+def on_change(e):
+    global path
+    path = entry_Path.get()
+entry_Path.bind("<Return>", on_change)
 optionsV = StringVar()
 optionsV.set(None)
 options = ["none"]
@@ -147,15 +155,17 @@ def switch():
     # ws.call(requests.SetCurrentScene(name))
 
 def run():
+    global path
+    path=entry_Path.get()
     cur = getState()
     switch()
     while (1>0):
         print getState()
-        # new = getState()
-        # if (cur!= new):
-        #     cur = new
-        #     print "stuff"
-            # switch()
+        new = getState()
+        if (cur!= new):
+            cur = new
+            print "stuff"
+            switch()
         time.sleep(1)
 b = Button(bottomFrame, text="run", command=run)
 b.pack()
