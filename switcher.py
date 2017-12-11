@@ -157,6 +157,7 @@ def switch():
 def run():
     global path
     path=entry_Path.get()
+    root.destroy()
     cur = getState()
     switch()
     while (1>0):
