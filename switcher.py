@@ -61,6 +61,7 @@ theLabel = Label(topFrame, text= "Dota Scene Switcher")
 theLabel.grid(row=0)
 label_Path = Label(topFrame, text = "path to console.log")
 entry_Path = Entry(topFrame)
+entry_Path.insert(0, "C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\console.log")
 label_Path.grid(row=1)
 entry_Path.grid(row=1, column=1)
 
